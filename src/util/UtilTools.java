@@ -11,9 +11,9 @@ public class UtilTools {
     // jdbc驱动类名
     public static final String className = "com.mysql.cj.jdbc.Driver";
     // 数据库地址
-    public static final String url = "jdbc:mysql://127.0.0.1:3306/web6";
+    public static final String url = "jdbc:mysql://182.254.157.244:3306/web6";
     // 数据库账号
-    public static final String user = "root";
+    public static final String user = "usr";
     // 数据库密码
     public static final String password = "123456";
     // 头像存放地址
