@@ -15,7 +15,6 @@
         background-image: url("image/light_dirt_background.png");
         background-size: 85px;
     }
-
     .title {
         position: relative;
         top: 30px;
@@ -92,15 +91,14 @@
                 users: []
             }
         },
-        method: {
-            show() {
+        methods: {
+            show:function() {
                 var _this = this;
                 var xhr = new XMLHttpRequest();
 
                 xhr.onreadystatechange = () => {
                     if (xhr.readyState == 4 && xhr.status == 200) {
                         _this.users = JSON.parse(xhr.responseText);
-                        alert(users[0].username);
                     }
                 }
                 xhr.open("get", "http://localhost:8080/LoadAuthor", true);
