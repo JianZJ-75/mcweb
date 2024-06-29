@@ -91,15 +91,14 @@
                 users: []
             }
         },
-        method: {
-            show() {
+        methods: {
+            show:function() {
                 var _this = this;
                 var xhr = new XMLHttpRequest();
 
                 xhr.onreadystatechange = () => {
                     if (xhr.readyState == 4 && xhr.status == 200) {
                         _this.users = JSON.parse(xhr.responseText);
-                        alert(users[0].username);
                     }
                 }
                 xhr.open("get", "http://localhost:8080/LoadAuthor", true);
