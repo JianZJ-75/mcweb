@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        My web page
+    </title>
+    <script src="js/vue.global.js"></script>
+    <link rel="stylesheet" href="./css/mc.css">
+</head>
+
+<style>
+    body {
+        background-image: url("image/light_dirt_background.png");
+        background-size: 85px;
+    }
+
+    * {
+        font-family: 'mc';
+        color: white;
+        user-select: none;
+    }
+
+    .title {
+        background-image: url("image/Our-World.png");
+        background-size: cover;
+        position: relative;
+        top: 180px;
+        margin: 0px auto auto;
+        width: 1084px;
+        height: 156px;
+        /*border: red solid 2px;*/
+    }
+
+    .btn {
+        background-image: url("image/button.png");
+        background-size: cover;
+        font-size: 30px;
+        text-align: center;
+        line-height: 80px;
+        position: relative;
+        top: 500px;
+        margin: 0px auto auto;
+        width: 800px;
+        height: 80px;
+        /*border: blue solid 2px;*/
+    }
+
+    .btn:hover {
+        border: white solid 3px;
+    }
+</style>
+<body>
+<div class="title">
+</div>
+<div class="btn" id="btn">
+    进入世界
+</div>
+</body>
+</html>
+<script>
+    document.getElementById('btn').addEventListener('click', function () {
+        location.href = 'usrs.html';
+    })
+</script>

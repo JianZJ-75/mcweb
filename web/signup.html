@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.global.js"></script>
+    <link rel="stylesheet" href="./css/mc.css">
+</head>
+<style>
+    * {
+        font-family: 'mc';
+        color: white;
+        user-select: none;
+    }
+
+    body {
+        background-image: url("image/light_dirt_background.png");
+        background-size: 85px;
+    }
+
+    .title {
+        font-size: 40px;
+        position: relative;
+        top: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+        /*border: red solid 2px;*/
+    }
+
+    .searchbox {
+        background-image: url("image/text_field.png");
+        background-size: cover;
+        position: relative;
+        margin: 20px auto 0px;
+        width: 700px;
+        height: 70px;
+
+    }
+
+    table {
+        position: relative;
+        /*margin: 0px auto auto;*/
+        top: 65px;
+        /*border: white solid 2px;*/
+        width: 100%;
+    }
+
+    td {
+        font-size: 60px;
+        text-align: center;
+        position: relative;
+        margin: 0px auto auto;
+        /*border: red solid 2px;*/
+    }
+
+    input {
+        background-color: black;
+        /*border: 10px;*/
+        border-color: rgb(160, 160, 160);
+        outline: none;
+        width: 750px;
+        height: 65px;
+    }
+
+    input:focus {
+        border-color: white;
+    }
+
+    .main {
+        background-color: rgba(0, 0, 0, 0.5);
+        margin-top: 20px;
+        width: 100%;
+        height: 875px;
+    }
+
+    .btn {
+        background-image: url("image/button.png");
+        background-size: cover;
+        font-size: 30px;
+        text-align: center;
+        line-height: 80px;
+        position: relative;
+        top: 300px;
+        margin: 20px auto auto;
+        width: 800px;
+        height: 80px;
+        /*border: blue solid 2px;*/
+    }
+
+    .btn:hover {
+        border: white solid 3px;
+    }
+</style>
+<body>
+<div class="title">创建新用户</div>
+<form>
+    <table>
+        <tr>
+            <td style="position: relative;left: -19%;color: rgb(160,160,160);font-size: 35px">用户名</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" style="font-size: 46px"/>
+            </td>
+        </tr>
+        <tr>
+            <td style="position: relative;left: -20%;color: rgb(160,160,160);font-size: 35px">密码</td>
+        </tr>
+        <tr>
+            <td><input type="password" style="font-size: 46px"></td>
+        </tr>
+    </table>
+
+    <div class="btn" id="rtn">返回</div>
+</form>
+</body>
+
+<script>
+    document.getElementById('rtn').addEventListener('click', function () {
+        location.href = 'usrs.html';
+    });
+</script>
+</html>
