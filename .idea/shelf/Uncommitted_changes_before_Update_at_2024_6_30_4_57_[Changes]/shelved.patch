@@ -1,0 +1,16 @@
+Index: .idea/artifacts/mcweb_Web_exploded.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"ArtifactManager\">\r\n  <artifact type=\"exploded-war\" name=\"mcweb:Web exploded\">\r\n    <output-path>$PROJECT_DIR$/out/artifacts/mcweb_Web_exploded</output-path>\r\n    <root id=\"root\">\r\n      <element id=\"javaee-facet-resources\" facet=\"mcweb/web/Web\" />\r\n      <element id=\"directory\" name=\"WEB-INF\">\r\n        <element id=\"directory\" name=\"classes\">\r\n          <element id=\"module-output\" name=\"mcweb\" />\r\n        </element>\r\n      </element>\r\n    </root>\r\n  </artifact>\r\n</component>
+===================================================================
+diff --git a/.idea/artifacts/mcweb_Web_exploded.xml b/.idea/artifacts/mcweb_Web_exploded.xml
+--- a/.idea/artifacts/mcweb_Web_exploded.xml	
++++ b/.idea/artifacts/mcweb_Web_exploded.xml	
+@@ -1,6 +1,6 @@
+ <component name="ArtifactManager">
+   <artifact type="exploded-war" name="mcweb:Web exploded">
+-    <output-path>$PROJECT_DIR$/out/artifacts/mcweb_Web_exploded</output-path>
++    <output-path>$PROJECT_DIR$/web</output-path>
+     <root id="root">
+       <element id="javaee-facet-resources" facet="mcweb/web/Web" />
+       <element id="directory" name="WEB-INF">
