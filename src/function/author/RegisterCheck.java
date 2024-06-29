@@ -22,10 +22,14 @@ public class RegisterCheck extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
+        response.setContentType("text/html;charset=utf-8");
         // 获取注册信息
-        String url = request.getParameter("url");
+//        String url = UtilTools.repoPhoto + request.getParameter("url");
+        String url = UtilTools.repoPhoto + "1.jpg";
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        out.println(username);
+        out.println(password);
         // 查询该用户名是否已经存在
         String sql = "select * from user where username=" + username;
         User user = new User();

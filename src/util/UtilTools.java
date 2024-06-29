@@ -18,6 +18,8 @@ public class UtilTools {
     public static final String password = "123456";
     // 头像存放地址
     public static final String repo = "C:\\Users\\SSHL\\IdeaProjects\\mcweb\\src\\resource";
+    // 图片上传位置
+    public static final String repoPhoto = "E:\\Download\\";
     // SQL添加新用户
     public static final String sqlAdd = "insert into user(username, pwd, photo) values (?,?,?)";
     // SQL删除博客
