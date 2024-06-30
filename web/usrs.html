@@ -99,7 +99,7 @@
         },
         methods: {
             fetchUsers() {
-                fetch('http://localhost:8080/mcweb/LoadAuthor')
+                fetch('http://localhost:8080/LoadAuthor')
                     .then(response => response.json())
                     .then(data => {
                         this.users = data;
