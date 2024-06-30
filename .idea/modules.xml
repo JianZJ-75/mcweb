@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/mcweb.iml" filepath="$PROJECT_DIR$/mcweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mcweb1.iml" filepath="$PROJECT_DIR$/mcweb1.iml" />
     </modules>
   </component>
 </project>

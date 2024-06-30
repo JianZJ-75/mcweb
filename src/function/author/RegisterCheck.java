@@ -1,15 +1,22 @@
 package function.author;
 
 import function.User;
+
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
+
+import jakarta.servlet.http.Part;
+
 import jakarta.servlet.http.HttpServletResponse;
 import util.UtilTools;
 
-import java.io.FileInputStream;
+import java.util.Base64;
+
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.*;
 
@@ -18,52 +25,72 @@ import java.sql.*;
  * @Date 2024/6/29 20:31
  */
 @WebServlet(name = "RegisterCheck", urlPatterns = "/RegisterCheck")
+@MultipartConfig
 public class RegisterCheck extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        response.setContentType("application/json;charset=utf-8");
         PrintWriter out = response.getWriter();
-        response.setContentType("text/html;charset=utf-8");
-//         获取注册信息
-//         获取文件名
-        String str = request.getParameter("repo");
-        String url = UtilTools.repoPhoto + str.substring(12);
-        System.out.println(url);
+
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        System.out.println(username + " " + password);
-        // 查询该用户名是否已经存在
-        String sql = "select * from user where username=" + username;
-        User user = new User();
+        Part filePart = request.getPart("photo");
+
+        if (filePart == null) {
+            System.out.println("文件部分为空");
+        } else {
+            System.out.println("文件部分已接收");
+        }
+
+        InputStream fileContent = filePart.getInputStream();
+        byte[] bytes = fileContent.readAllBytes();
+        String base64Photo = Base64.getEncoder().encodeToString(bytes);
+
         try {
             Class.forName(UtilTools.className);
             Connection connection = DriverManager.getConnection(UtilTools.url, UtilTools.user, UtilTools.password);
-            Statement statement = connection.createStatement();
-            ResultSet res = statement.executeQuery(sql);
-            while (res.next()) {
-                user.setUsername(res.getString("username"));
-            }
-            if (user.getUsername() != null) {
-                response.sendRedirect("test/test1/test3.html");
-                out.println("该用户名已经存在!");
+
+            // Check if the username already exists
+            String checkSql = "SELECT * FROM user WHERE username = ?";
+            PreparedStatement checkStmt = connection.prepareStatement(checkSql);
+            checkStmt.setString(1, username);
+            ResultSet res = checkStmt.executeQuery();
+
+            if (res.next()) {
+                out.println("{\"message\": \"Username already exists\"}");
             } else {
-                PreparedStatement ps = connection.prepareStatement(UtilTools.sqlAdd);
-                ps.setString(1, username);
-                ps.setString(2, password);
-                ps.setBinaryStream(3, new FileInputStream(url));
-                ps.executeUpdate();
-                out.println("注册完成");
+                // Insert new user
+                String insertSql = "INSERT INTO user (username, pwd, photo) VALUES (?, ?, ?)";
+                PreparedStatement insertStmt = connection.prepareStatement(insertSql);
+                insertStmt.setString(1, username);
+                insertStmt.setString(2, password);
+                insertStmt.setString(3, base64Photo);
+                insertStmt.executeUpdate();
+
+                System.out.println(insertSql);
+                out.println("{\"message\": \"User created successfully\"}");
             }
-            statement.close();
+
+            res.close();
+            checkStmt.close();
             connection.close();
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            out.println("{\"message\": \"Internal server error\"}");
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String contentType = request.getContentType();
+        if (contentType == null || !contentType.startsWith("multipart/form-data")) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.getWriter().println("{\"message\": \"Invalid content type\"}");
+            return;
+        }
+
+        // 继续处理请求
         doGet(request, response);
     }
 }

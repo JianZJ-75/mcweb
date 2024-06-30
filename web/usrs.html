@@ -64,21 +64,21 @@
 <div>
     <!--<div class="searchbox"></div>-->
     <div class="main" id="app">
-<!--        <ul>-->
-<!--            <li v-for="user in users">-->
-<!--                <img v-bind:src="user.url">-->
-<!--                {{user.username}}:{{user.password}}-->
-<!--            </li>-->
-<!--        </ul>-->
-        <div style="display: flex;padding-left: 30%" v-for="user in users">
-            <div id="left" style="display: flex;border: 1px solid black;width: 200px;height: 150px">
-                <img src="">
-            </div>
-            <div id="right" style="display: flex;border: 1px solid black;width: 500px;">
-                {{user.username}}:{{user.password}}
-            </div>
-        </div>
 
+
+        <div class="user-item" v-for="user in users" :key="user.id"
+             style="border: 1px solid blue;text-align: center;padding: 0">
+
+            <div style="border: 1px solid red;display: inline;width: 100px;height: 100px">
+                <img :src="'data:image/jpeg;base64,'+user.photo" alt="User Image" style="width: 95px;height: 95px">
+            </div>
+
+            <div style="border: 1px solid yellow;display:inline;font-size: 30px;width: 100px;height: 100px;position: relative;top: -100px">
+                UserName:{{ user.username }}
+                PassWord:{{ user.password }}
+            </div>
+
+        </div>
     </div>
     <div class="btn" id="signup">创建新用户</div>
     <div class="btn" id="rtn">返回</div>
@@ -87,38 +87,36 @@
 </html>
 
 <script>
-    var myApp = Vue.createApp({
-        data: function () {
+    const myApp = Vue.createApp({
+        data() {
             return {
                 users: []
-            }
+            };
         },
-        method: {
-            show() {
-                var _this = this;
-                var xhr = new XMLHttpRequest();
-
-                xhr.onreadystatechange = () => {
-                    if (xhr.readyState == 4 && xhr.status == 200) {
-                        _this.users = JSON.parse(xhr.responseText);
-                        alert(users[0].username);
-                    }
-                }
-                xhr.open("get", "http://localhost:8080/LoadAuthor", true);
-                xhr.send();
+        methods: {
+            fetchUsers() {
+                fetch('http://localhost:8080/LoadAuthor')
+                    .then(response => response.json())
+                    .then(data => {
+                        this.users = data;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching users:', error);
+                    });
             }
         },
         mounted() {
-            this.show();
+            this.fetchUsers();
         }
     });
-    myApp.mount("#app");
+
+    myApp.mount('#app');
 
     document.getElementById('rtn').addEventListener('click', function () {
-        location.href = 'lobby.html';
+        location.href = 'index.html';
     });
     document.getElementById('signup').addEventListener('click', function () {
         location.href = 'signup.html';
-    })
+    });
 
 </script>
