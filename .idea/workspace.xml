@@ -1,51 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="mcweb:Web exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8a2a049-99f2-4a13-82bc-08acea3da6e9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/mcweb1_Web_exploded.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/11546c29-1ea1-43a5-924b-cc246aa1c6c9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/11546c29-1ea1-43a5-924b-cc246aa1c6c9/storage_v2/_src_/schema/book.6TouAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/11546c29-1ea1-43a5-924b-cc246aa1c6c9/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/11546c29-1ea1-43a5-924b-cc246aa1c6c9/storage_v2/_src_/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/11546c29-1ea1-43a5-924b-cc246aa1c6c9/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/11546c29-1ea1-43a5-924b-cc246aa1c6c9/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/11546c29-1ea1-43a5-924b-cc246aa1c6c9/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/11546c29-1ea1-43a5-924b-cc246aa1c6c9/storage_v2/_src_/schema/sys.zb4BAA.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/11546c29-1ea1-43a5-924b-cc246aa1c6c9/storage_v2/_src_/schema/web6.Yp83AA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/fastjson2_2_0_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_10_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jakarta_xml_bind_api_4_0_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_4_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/servlet_api.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024_6_30_4_57_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024_6_30_4_57_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024_6_30_4_57__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024_6_30_4_57__Changes_1.xml" beforeDir="false" />
+    <list default="true" id="f8a2a049-99f2-4a13-82bc-08acea3da6e9" name="Changes" comment="now">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mcweb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mcweb.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mcweb1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/function/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/function/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/function/author/GetImageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/GetImageServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/function/author/LoadAuthor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/function/author/LoadAuthor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/function/author/RegisterCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/function/author/RegisterCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/function/author/UploadServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/UploadServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/function/backstage/DeleteUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/function/backstage/DeleteUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/BlogUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/UserUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/UtilTools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/UtilTools.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/signup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/usrs.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/usrs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Servlet" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "customColor": "",
   "associatedIndex": 4
 }]]></component>
   <component name="ProjectId" id="2ibRkU30xuQlJjHLLHG347Lod2R" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -53,8 +61,15 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat Server.Tomcat 10.1.23.executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/Git/demo1/webworkspace",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
@@ -168,11 +183,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1719757434387</updated>
-      <workItem from="1719757436267" duration="159000" />
+      <workItem from="1719757436267" duration="3448000" />
     </task>
+    <task id="LOCAL-00001" summary="now">
+      <option name="closed" value="true" />
+      <created>1719757689336</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1719757689336</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="now" />
+    <option name="LAST_COMMIT_MESSAGE" value="now" />
   </component>
 </project>

@@ -99,14 +99,11 @@
         },
         methods: {
             fetchUsers() {
-                fetch('http://localhost:8080/LoadAuthor')
+                fetch('http://localhost:8080/mcweb/LoadAuthor')
                     .then(response => response.json())
                     .then(data => {
                         this.users = data;
                     })
-                    .catch(error => {
-                        console.error('Error fetching users:', error);
-                    });
             }
         },
         mounted() {

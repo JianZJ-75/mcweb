@@ -35,6 +35,7 @@ public class RegisterCheck extends HttpServlet {
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        // 获取头像
         Part filePart = request.getPart("photo");
 
         if (filePart == null) {
@@ -51,8 +52,8 @@ public class RegisterCheck extends HttpServlet {
             Class.forName(UtilTools.className);
             Connection connection = DriverManager.getConnection(UtilTools.url, UtilTools.user, UtilTools.password);
 
-            // Check if the username already exists
-            String checkSql = "SELECT * FROM user WHERE username = ?";
+            // 如果用户已经存在
+            String checkSql = UtilTools.checkSql;
             PreparedStatement checkStmt = connection.prepareStatement(checkSql);
             checkStmt.setString(1, username);
             ResultSet res = checkStmt.executeQuery();
@@ -60,8 +61,8 @@ public class RegisterCheck extends HttpServlet {
             if (res.next()) {
                 out.println("{\"message\": \"Username already exists\"}");
             } else {
-                // Insert new user
-                String insertSql = "INSERT INTO user (username, pwd, photo) VALUES (?, ?, ?)";
+                // 添加新用户
+                String insertSql = UtilTools.sqlAdd;
                 PreparedStatement insertStmt = connection.prepareStatement(insertSql);
                 insertStmt.setString(1, username);
                 insertStmt.setString(2, password);

@@ -1,4 +1,4 @@
-package function.author;
+package test;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

@@ -16,29 +16,16 @@ public class UtilTools {
     public static final String user = "usr";
     // 数据库密码
     public static final String password = "123456";
-    // 头像存放地址
-    public static final String repo = "image\\photo\\";
-    // 图片上传位置
-    public static final String repoPhoto = "E:\\Download\\";
-    //    public static final String repo = "C:\\Users\\a1813\\Desktop\\Java\\web123\\src\\main\\resources\\";
+    // SQL查找用户
+    public static final String checkSql = "select * from user where username = ?";
+    public static final String checkSqlById = "select * from user where id = ";
+    // SQL删除用户
+    public static final String deleteSql = "delete from user where username = ?";
     // SQL添加新用户
     public static final String sqlAdd = "insert into user(username, pwd, photo) values (?,?,?)";
     // SQL删除博客
     public static final String sqlDel = "delete from blog where blogId = ?";
-    // SQL 添加博客
+    // SQL添加博客
     public static final String sqlAddBlog = "insert into blog(title, username, content, postTime, userId) values(?,?,?,now(),?)";
-
-    // 加载头像
-    public static void loadPhoto(String url, InputStream content) throws IOException {
-        BufferedInputStream bis = new BufferedInputStream(content);
-        BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(url));
-        byte[] buffer = new byte[1024];
-        int len;
-        while ((len = bis.read(buffer)) != -1) {
-            bos.write(buffer, 0, len);
-        }
-        bos.close();
-        bis.close();
-    }
 
 }

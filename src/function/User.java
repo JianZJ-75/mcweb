@@ -13,44 +13,28 @@ public class User {
     private int id;
     private String username;
     private String password;
-    private String url;
-    private String absoluteUrl;
     private String photo; // 添加 photo 字段
-
-    public void setAbsoluteUrl(String absoluteUrl) {
-        this.absoluteUrl = absoluteUrl;
-    }
 
     public User() {
     }
 
-    public User(int id, String username, String password, String url) {
+    public User(int id, String username, String password, String photo) {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.url = url;
+        this.photo = photo;
     }
 
     /**
      * 获取
-     *
      * @return id
      */
     public int getId() {
         return id;
     }
 
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
-
     /**
      * 设置
-     *
      * @param id
      */
     public void setId(int id) {
@@ -59,7 +43,6 @@ public class User {
 
     /**
      * 获取
-     *
      * @return username
      */
     public String getUsername() {
@@ -68,24 +51,14 @@ public class User {
 
     /**
      * 设置
-     *
+     * @param username
      */
     public void setUsername(String username) {
         this.username = username;
-//        url = UtilTools.repo + this.username + ".jpg";
-//        absoluteUrl = "web\\" + url;
-//        File tmp = new File(absoluteUrl);
-//        try {
-//            tmp.createNewFile();
-//        } catch (IOException e) {
-//            System.out.println(absoluteUrl);
-//            throw new RuntimeException(e);
-//        }
     }
 
     /**
      * 获取
-     *
      * @return password
      */
     public String getPassword() {
@@ -94,7 +67,6 @@ public class User {
 
     /**
      * 设置
-     *
      * @param password
      */
     public void setPassword(String password) {
@@ -103,27 +75,21 @@ public class User {
 
     /**
      * 获取
-     *
-     * @return url
+     * @return photo
      */
-    public String getUrl() {
-        return url;
+    public String getPhoto() {
+        return photo;
     }
 
     /**
      * 设置
-     *
-     * @param url
+     * @param photo
      */
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getAbsoluteUrl() {
-        return absoluteUrl;
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public String toString() {
-        return "User{id = " + id + ", username = " + username + ", password = " + password + ", url = " + url + "}";
+        return "User{id = " + id + ", username = " + username + ", password = " + password + ", photo = " + photo + "}";
     }
 }
