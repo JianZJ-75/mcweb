@@ -2,6 +2,9 @@ package function;
 
 import util.UtilTools;
 
+import java.io.File;
+import java.io.IOException;
+
 /**
  * @Author JianZJ
  * @Date 2024/6/29 20:34
@@ -11,6 +14,7 @@ public class User {
     private String username;
     private String password;
     private String url;
+    private String absoluteUrl;
 
     public User() {
     }
@@ -53,6 +57,14 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
         url = UtilTools.repo + this.username + ".jpg";
+        absoluteUrl = "web\\" + url;
+        File tmp = new File(absoluteUrl);
+        try {
+            tmp.createNewFile();
+        } catch (IOException e) {
+            System.out.println(absoluteUrl);
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -85,6 +97,10 @@ public class User {
      */
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getAbsoluteUrl() {
+        return absoluteUrl;
     }
 
     public String toString() {

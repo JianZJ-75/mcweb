@@ -81,32 +81,32 @@
         border: white solid 3px;
     }
 </style>
-<body>
+<body id="app">
 <div class="title">创建新用户</div>
-<form id="form" method="get">
+<form id="form">
     <table>
         <tr>
             <td style="position: relative;left: -19%;color: rgb(160,160,160);font-size: 35px">用户名</td>
         </tr>
         <tr>
             <td>
-                <input type="text" style="font-size: 46px" name="username"/>
+                <input type="text" style="font-size: 46px" name="username" id="username"/>
             </td>
         </tr>
         <tr>
             <td style="position: relative;left: -20%;color: rgb(160,160,160);font-size: 35px">密码</td>
         </tr>
         <tr>
-            <td><input type="password" style="font-size: 46px" name="password"></td>
+            <td><input type="password" style="font-size: 46px" name="password" id="password"></td>
         </tr>
         <tr>
             <td style="position: relative;left: -20%;color: rgb(160,160,160);font-size: 35px">头像</td>
         </tr>
         <tr>
-            <td><input type="file" style="font-size: 46px" name="url" accept="image/*" required></td>
+            <td><input id ="url" type="file" style="font-size: 46px" name="url" accept="image/*" required></td>
         </tr>
     </table>
-    <div class="btn" id="create" v-on:click="create">创建</div>
+    <div class="btn" id="create" v-on:click="create()">创建</div>
     <div class="btn" id="rtn">返回</div>
 </form>
 </body>
@@ -115,6 +115,7 @@
     document.getElementById('rtn').addEventListener('click', function () {
         location.href = 'usrs.html';
     });
+
     var myApp = Vue.createApp({
         data: function () {
             return {
@@ -135,19 +136,26 @@
                 xhr.send();
             },
             create: function () {
-
                 var xhr = new XMLHttpRequest();
                 var myform = document.getElementById("form");
                 var tmp = new FormData(myform);
+                var str = "" + document.getElementById("url").value;
                 xhr.onreadystatechange = () => {
-                    if (xhr.readyState == 4 && xhr.status == 200)
-                        alert(xhr.responseText);
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var idx = xhr.responseText;
+                        alert(idx);
+                        if (idx == "该用户名已经存在!") {
+                            document.getElementById("username").focus();
+                        } else {
+                            location.href="usrs.html";
+                        }
+                    }
                 }
                 xhr.open('post', 'http://localhost:8080/RegisterCheck', true);
-                var data = new URLSearchParams(tmp).toString();
                 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                var data = new URLSearchParams(tmp).toString();
+                data += "&repo=" + str;
                 xhr.send(data);
-
             }
         },
         mounted() {
