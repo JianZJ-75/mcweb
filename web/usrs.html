@@ -56,26 +56,30 @@
     .btn:hover {
         border: white solid 3px;
     }
+    .user-item{
+
+    }
+    .user-item:hover{
+        border: white solid 1px;
+    }
+    img:hover{
+        border: white solid 1px;
+    }
 </style>
 <body>
 <div class="title">
     选择用户
 </div>
 <div>
-    <!--<div class="searchbox"></div>-->
     <div class="main" id="app">
+        <div class="user-item" v-for="user in users" :key="user.id">
 
-
-        <div class="user-item" v-for="user in users" :key="user.id"
-             style="border: 1px solid blue;text-align: center;padding: 0">
-
-            <div style="border: 1px solid red;display: inline;width: 100px;height: 100px">
-                <img :src="'data:image/jpeg;base64,'+user.photo" alt="User Image" style="width: 95px;height: 95px">
+            <div style="border: 1px solid red;display: inline;width: 100px;height: 100px;position: relative;left: 700px">
+                <img :src="'data:image/jpeg;base64,'+user.photo" alt="User Image" style="width: 95px;height: 95px;border-collapse: collapse">
             </div>
 
-            <div style="border: 1px solid yellow;display:inline;font-size: 30px;width: 100px;height: 100px;position: relative;top: -100px">
-                UserName:{{ user.username }}
-                PassWord:{{ user.password }}
+            <div style="border: 1px solid yellow;display:inline;font-size: 30px;width: 100px;height: 100px;position: relative;top: -70px;border-collapse: collapse;left: 700px">
+                {{ user.username }}
             </div>
 
         </div>
