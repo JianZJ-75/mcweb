@@ -6,14 +6,134 @@
     <script src="js/vue.global.js"></script>
     <link rel="stylesheet" href="./css/mc.css">
 </head>
-
 <style>
     * {
         font-family: 'mc';
+        color: white;
+        user-select: none;
+    }
+    body {
+        background-image: url("image/light_dirt_background.png");
+        background-size: 85px;
+    }
+
+    .title {
+        font-size: 40px;
+        position: relative;
+        top: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+        /*border: red solid 2px;*/
+    }
+
+    table {
+        position: relative;
+        /*margin: 0px auto auto;*/
+        top: 65px;
+        /*border: white solid 2px;*/
+        width: 100%;
+    }
+
+    td {
+        font-size: 60px;
+        text-align: center;
+        position: relative;
+        margin: 0px auto auto;
+        /*border: red solid 2px;*/
+    }
+
+    input {
+        background-color: black;
+        /*border: 10px;*/
+        border-color: rgb(160, 160, 160);
+        outline: none;
+        width: 750px;
+        height: 65px;
+    }
+
+    input:focus {
+        border-color: white;
+    }
+
+    .main {
+        background-color: rgba(0, 0, 0, 0.5);
+        margin-top: 20px;
+        width: 100%;
+        height: 875px;
+    }
+
+    .btn {
+        background-image: url("image/button.png");
+        background-size: cover;
+        font-size: 30px;
+        text-align: center;
+        line-height: 80px;
+        position: relative;
+        top: 300px;
+        margin: 20px auto auto;
+        width: 800px;
+        height: 80px;
+        /*border: blue solid 2px;*/
+    }
+
+    .btn:hover {
+        border: white solid 3px;
     }
 </style>
 
-<body>
-
+<body  id = "app">
+<div class="title">登录用户</div>
+<form>
+    <table>
+        <tr>
+            <td style="position: relative;left: -19%;color: rgb(160,160,160);font-size: 35px">密码</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="password" style="font-size: 46px" name="password"/>
+            </td>
+        </tr>
+    </table>
+</form>
+<div class="btn" id="signin" v-on:click="create()">登录</div>
+<div class="btn" id="rtn">返回</div>
 </body>
+<script>
+    document.getElementById('rtn').addEventListener('click',function (){
+        location.href='usrs.html';
+    })
+    // document.getElementById('signin').addEventListener('click',function () {
+    //
+    // })
+    var myApp = Vue.createApp({
+        data: function () {
+            return {
+                users: []
+            }
+        },
+        methods: {
+            create: function () {
+                var xhr = new XMLHttpRequest();
+                var myform = document.getElementById("form");
+                var tmp = new FormData(myform);
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var idx = xhr.responseText;
+                        alert(idx);
+                        if(idx =="账号或密码错误!") {
+                            document.getElementById("username").focus();
+                        }else {
+                            location.href("blog.html");
+                        }
+                    }
+                }
+                xhr.open('post', 'http://localhost:8080/LoginCheck', true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                var data = new URLSearchParams(tmp).toString();
+                xhr.send(data);
+            }
+        }
+    });
+    myApp.mount("#app");
+</script>
 </html>

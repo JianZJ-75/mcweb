@@ -26,15 +26,6 @@
         /*border: red solid 2px;*/
     }
 
-    /*.searchbox{*/
-    /*    background-image: url("image/text_field.png");*/
-    /*    background-size: cover;*/
-    /*    position: relative;*/
-    /*    margin: 20px auto 0px;*/
-    /*    width: 700px;*/
-    /*    height: 70px;*/
-
-    /*}*/
     * {
         color: white;
         user-select: none;
@@ -73,11 +64,21 @@
 <div>
     <!--<div class="searchbox"></div>-->
     <div class="main" id="app">
-        <ul>
-            <li v-for="user in users">
+<!--        <ul>-->
+<!--            <li v-for="user in users">-->
+<!--                <img v-bind:src="user.url">-->
+<!--                {{user.username}}:{{user.password}}-->
+<!--            </li>-->
+<!--        </ul>-->
+        <div style="display: flex;padding-left: 30%" v-for="user in users">
+            <div id="left" style="display: flex;border: 1px solid black;width: 200px;height: 150px">
+                <img src="">
+            </div>
+            <div id="right" style="display: flex;border: 1px solid black;width: 500px;">
                 {{user.username}}:{{user.password}}
-            </li>
-        </ul>
+            </div>
+        </div>
+
     </div>
     <div class="btn" id="signup">创建新用户</div>
     <div class="btn" id="rtn">返回</div>

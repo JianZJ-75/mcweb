@@ -22,10 +22,15 @@ public class RegisterCheck extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        // 获取注册信息
-        String url = request.getParameter("url");
+        response.setContentType("text/html;charset=utf-8");
+//         获取注册信息
+//         获取文件名
+        String str = request.getParameter("repo");
+        String url = UtilTools.repoPhoto + str.substring(12);
+        System.out.println(url);
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        System.out.println(username + " " + password);
         // 查询该用户名是否已经存在
         String sql = "select * from user where username=" + username;
         User user = new User();
@@ -38,6 +43,7 @@ public class RegisterCheck extends HttpServlet {
                 user.setUsername(res.getString("username"));
             }
             if (user.getUsername() != null) {
+                response.sendRedirect("test/test1/test3.html");
                 out.println("该用户名已经存在!");
             } else {
                 PreparedStatement ps = connection.prepareStatement(UtilTools.sqlAdd);

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.global.js"></script>
+    <link rel="stylesheet" href="./css/mc.css">
+</head>
+<style>
+    * {
+        font-family: 'mc';
+    }
+    body {
+        background-image: url("image/light_dirt_background.png");
+        background-size: 85px;
+    }
+
+    .title {
+        font-size: 40px;
+        position: relative;
+        top: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+        /*border: red solid 2px;*/
+    }
+
+    table {
+        position: relative;
+        /*margin: 0px auto auto;*/
+        top: 65px;
+        /*border: white solid 2px;*/
+        width: 100%;
+    }
+
+    td {
+        font-size: 60px;
+        text-align: center;
+        position: relative;
+        margin: 0px auto auto;
+        /*border: red solid 2px;*/
+    }
+
+    input {
+        background-color: black;
+        /*border: 10px;*/
+        border-color: rgb(160, 160, 160);
+        outline: none;
+        width: 750px;
+        height: 65px;
+    }
+
+    input:focus {
+        border-color: white;
+    }
+
+    .main {
+        position: relative;
+        float: left;
+        left: 190px;
+        top: 100px;
+        background-color: rgba(0,0,0,0.5);
+        border: white solid 2px;
+        width: 700px;
+        height: 800px;
+    }
+
+    .btn {
+        background-image: url("image/button.png");
+        background-size: cover;
+        font-size: 30px;
+        text-align: center;
+        line-height: 80px;
+        position: relative;
+        top: 300px;
+        margin: 20px auto auto;
+        width: 800px;
+        height: 80px;
+        /*border: blue solid 2px;*/
+    }
+
+    .btn:hover {
+        border: white solid 3px;
+    }
+    .left{
+        position: relative;
+        top: 75px;
+        float: left;
+        width: 27%;
+        height: 1000px;
+        border: red solid 2px;
+        border-collapse:collapse;
+    }
+    .right{
+        float: left;
+        position: relative;
+        top:75px;
+        background-image: url("image/book.png");
+        background-size: cover;
+        width: 60%;
+        height: 1050px;
+        border: blue solid 2px;
+        border-collapse: collapse;
+    }
+    .next-page{
+        float: left;
+        background-image: url("image/page_forward.png");
+        background-size: cover;
+        width: 92px;
+        height: 52px;
+        border: white solid 2px;
+        position: relative;
+        top:845px;
+        left: 90px;
+    }
+    .next-page:hover{
+        background-image: url("image/page_forward_highlighted.png");
+    }
+    .prev-page{
+        background-image: url("image/page_backward.png");
+        background-size: cover;
+        width: 92px;
+        height: 52px;
+        border: white solid 2px;
+        position: relative;
+        top: 900px;
+        left: 190px;
+    }
+    .prev-page:hover{
+        background-image: url("image/page_backward_highlighted.png");
+    }
+</style>
+<body>
+<div class="left">
+
+</div>
+<div class="right">
+    <div class="main"></div>
+    <div class="prev-page" id="prev-page"></div>
+<div class="next-page" id="next-page"></div>
+</div>
+</body>
+<script>
+    document.getElementById('prev-page').addEventListener('click',function () {
+
+    });
+    document.getElementById('next-page').addEventListener('click',function () {
+
+    });
+</script>
+</html>

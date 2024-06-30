@@ -40,7 +40,7 @@ public class LoadAuthor extends HttpServlet {
                 user.setPassword(res.getString("pwd"));
                 InputStream content = res.getBinaryStream("photo");
                 // 更新头像
-                UtilTools.loadPhoto(user.getUrl(), content);
+                UtilTools.loadPhoto(user.getAbsoluteUrl(), content);
                 users.add(user);
             }
             statement.close();
