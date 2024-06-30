@@ -14,6 +14,7 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 /**
@@ -38,10 +39,15 @@ public class LoadAuthor extends HttpServlet {
                 user.setId(res.getInt("id"));
                 user.setUsername(res.getString("username"));
                 user.setPassword(res.getString("pwd"));
-                InputStream content = res.getBinaryStream("photo");
-                // 更新头像
-                UtilTools.loadPhoto(user.getAbsoluteUrl(), content);
+                String base64Image = res.getString("photo");
+//                byte[] imageBytes = Base64.getDecoder().decode(base64Image.split(",")[1]);
+//                response.setContentType("image/jpeg"); // 根据实际情况调整
+                user.setPhoto(base64Image); // 设置用户的照片 Base64 编码
                 users.add(user);
+//                response.getOutputStream().write(imageBytes);
+//                InputStream content = res.getBinaryStream("photo");
+//                // 更新头像
+//                UtilTools.loadPhoto(user.getAbsoluteUrl(), content);
             }
             statement.close();
             connection.close();
